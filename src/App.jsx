@@ -4,29 +4,28 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { Toaster } from 'react-hot-toast';
 import { DarkModeProvider } from './context/DarkModeContext';
 import GlobalStyles from './styles/GlobalStyles';
-import { Suspense, lazy } from 'react';
 
-const Dashboard = lazy(() => import('./pages/Dashboard'));
-const Bookings = lazy(() => import('./pages/Bookings'));
-const Cabins = lazy(() => import('./pages/Cabins'));
-const Users = lazy(() => import('./pages/Users'));
-const Settings = lazy(() => import('./pages/Settings'));
-const Account = lazy(() => import('./pages/Account'));
-// const Login = lazy(() => import('./pages/Login'));
-const PageNotFound = lazy(() => import('./pages/PageNotFound'));
-const Booking = lazy(() => import('./pages/Booking'));
-const Checkin = lazy(() => import('./pages/Checkin'));
+// const Dashboard = lazy(() => import('./pages/Dashboard'));
+// const Bookings = lazy(() => import('./pages/Bookings'));
+// const Cabins = lazy(() => import('./pages/Cabins'));
+// const Users = lazy(() => import('./pages/Users'));
+// const Settings = lazy(() => import('./pages/Settings'));
+// const Account = lazy(() => import('./pages/Account'));
+// // const Login = lazy(() => import('./pages/Login'));
+// const PageNotFound = lazy(() => import('./pages/PageNotFound'));
+// const Booking = lazy(() => import('./pages/Booking'));
+// const Checkin = lazy(() => import('./pages/Checkin'));
 
-// import Dashboard from './pages/Dashboard';
-// import Bookings from './pages/Bookings';
-// import Cabins from './pages/Cabins';
-// import Users from './pages/Users';
-// import Settings from './pages/Settings';
-// import Account from './pages/Account';
+import Dashboard from './pages/Dashboard';
+import Bookings from './pages/Bookings';
+import Cabins from './pages/Cabins';
+import Users from './pages/Users';
+import Settings from './pages/Settings';
+import Account from './pages/Account';
 import Login from './pages/Login';
-// import PageNotFound from './pages/PageNotFound';
-// import Booking from './pages/Booking';
-// import Checkin from './pages/Checkin';
+import PageNotFound from './pages/PageNotFound';
+import Booking from './pages/Booking';
+import Checkin from './pages/Checkin';
 
 import AppLayout from './ui/AppLayout';
 import ProtectedRoute from './ui/ProtectedRoute';
@@ -48,29 +47,27 @@ function App() {
 				<ReactQueryDevtools initialIsOpen={false} />
 				<GlobalStyles />
 				<BrowserRouter>
-					<Suspense fallback={<Spinner />}>
-						<Routes>
-							<Route
-								element={
-									<ProtectedRoute>
-										<AppLayout />
-									</ProtectedRoute>
-								}
-							>
-								<Route index element={<Navigate replace to="dashboard" />} />
-								<Route path="dashboard" element={<Dashboard />} />
-								<Route path="bookings/:bookingId" element={<Booking />} />
-								<Route path="checkin/:bookingId" element={<Checkin />} />
-								<Route path="bookings" element={<Bookings />} />
-								<Route path="cabins" element={<Cabins />} />
-								<Route path="users" element={<Users />} />
-								<Route path="settings" element={<Settings />} />
-								<Route path="account" element={<Account />} />
-							</Route>
-							<Route path="login" element={<Login />} />
-							<Route path="*" element={<PageNotFound />} />
-						</Routes>
-					</Suspense>
+					<Routes>
+						<Route
+							element={
+								<ProtectedRoute>
+									<AppLayout />
+								</ProtectedRoute>
+							}
+						>
+							<Route index element={<Navigate replace to="dashboard" />} />
+							<Route path="dashboard" element={<Dashboard />} />
+							<Route path="bookings/:bookingId" element={<Booking />} />
+							<Route path="checkin/:bookingId" element={<Checkin />} />
+							<Route path="bookings" element={<Bookings />} />
+							<Route path="cabins" element={<Cabins />} />
+							<Route path="users" element={<Users />} />
+							<Route path="settings" element={<Settings />} />
+							<Route path="account" element={<Account />} />
+						</Route>
+						<Route path="login" element={<Login />} />
+						<Route path="*" element={<PageNotFound />} />
+					</Routes>
 				</BrowserRouter>
 
 				<Toaster
