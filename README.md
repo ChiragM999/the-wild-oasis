@@ -32,9 +32,3 @@ Welcome to "The Wild Oasis," a full-fledged Hotel Booking Management Admin Panel
 
 ## Live Demo
 Check out the live version of "The Wild Oasis" [here](https://the-wild-oasis-chiragm999.netlify.app/).
-
-## Contributing
-Contributions to this project are welcome! Feel free to open issues or submit pull requests for bug fixes, improvements, or additional features.
-
-## Note
-📚 This project is a part of the Ultimate React Course by Jonas Schmedtmann on Udemy.
